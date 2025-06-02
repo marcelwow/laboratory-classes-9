@@ -13,20 +13,20 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://marcelekwaw:marcel
 
 const app = express();
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
-// Przekierowanie z głównej ścieżki na /api/books
+
 app.get('/', (req, res) => {
   res.redirect('/api/books');
 });
 
-// Routes
+
 app.use("/api/books", bookRoutes);
 app.use("/api/authors", authorRoutes);
 
-// MongoDB connection
+
 mongoose.connect(MONGODB_URI)
     .then(() => console.log("📦 Connected to MongoDB"))
     .catch((err) => console.error("MongoDB connection error:", err));

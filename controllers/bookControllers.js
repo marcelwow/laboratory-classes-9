@@ -1,6 +1,6 @@
 const Book = require('../models/Book');
 
-// GET /api/books - lista książek z informacją o autorze
+
 exports.getBooks = async (req, res) => {
     try {
         const books = await Book.find().populate('author');
@@ -10,7 +10,7 @@ exports.getBooks = async (req, res) => {
     }
 };
 
-// POST /api/books - dodanie książki
+
 exports.createBook = async (req, res) => {
     try {
         const book = new Book(req.body);
@@ -22,7 +22,7 @@ exports.createBook = async (req, res) => {
     }
 };
 
-// DELETE /api/books/:id - usunięcie książki
+
 exports.deleteBook = async (req, res) => {
     try {
         const book = await Book.findByIdAndDelete(req.params.id);

@@ -1,6 +1,6 @@
 const Author = require('../models/Author');
 
-// GET /api/authors - lista autorów
+
 exports.getAuthors = async (req, res) => {
     try {
         const authors = await Author.find();
@@ -10,7 +10,7 @@ exports.getAuthors = async (req, res) => {
     }
 };
 
-// PUT /api/authors/:id - edycja autora
+
 exports.updateAuthor = async (req, res) => {
     try {
         const author = await Author.findByIdAndUpdate(
